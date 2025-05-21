@@ -1,0 +1,115 @@
+<table>
+    <tr>
+        <td colspan="8" style="border: none">
+            <div class="row d-flex pl-3">
+                                   
+                <div class="pr-0" style="text-align:center"><label class="label" class=" mt-1 mr-1">Montant total brut</label><br>  
+                    
+                    <input required autocomplete="off" onfocus="this.blur()" oninput="validateNumber(this);" style="background-color: #e9ecef; width:110px; text-align:right;" type="text" name="montant_total_brut" class="form-control montant_total_brut">
+            
+                </div>
+
+                <div class="pl-1" style="text-align:center"><label class="label" class="font-weight-bold  mt-1 mr-1">Taux remise (%)</label><br>
+
+                    <input oninput ="validateNumber(this);" onkeyup="editTauxRemiseGenerale(this)" autocomplete="off" type="text" name="taux_remise_generale" class="form-control taux_remise_generale" style="width:90px; text-align:center;">
+
+                </div>
+
+                <div class="pl-1" style="text-align:center"><label class="label" class="  mt-1 mr-1">Remise</label><br>  
+
+                    <input onkeyup="editRemiseGenerale(this)" oninput="validateNumber(this);" autocomplete="off"  style="width:110px; text-align:right;" type="text" name="remise_generale" class="form-control remise_generale">
+
+                </div>
+
+                <div class="pl-1" style="text-align:center"><label class="label" class=" mt-1 mr-2">Montant total net ht</label><br>  
+                    
+                    <input required autocomplete="off" onfocus="this.blur()" oninput="validateNumber(this);" style="background-color: #e9ecef; width:110px; text-align:right;" type="text" name="montant_total_net" class="form-control montant_total_net">
+
+                </div>
+
+                <div class="pl-1" style="text-align:center"><label class="label" class=" mt-1 mr-2">TVA (%)</label><br>  
+                    
+                    <input list="list_taxe_tva" onkeyup="editRemiseGenerale(this)" oninput="validateNumber(this);" autocomplete="off" style=" width:80px; text-align:center" type="text" name="tva" class="form-control tva">
+
+                </div>
+
+                <div class="pl-1" style="text-align:center"><label class="label" class=" mt-1 mr-2">&nbsp;</label><br>
+                    
+                    <input autocomplete="off" onfocus="this.blur()" oninput="validateNumber(this);" style="background-color: #e9ecef; width:110px; text-align:right" type="text" name="montant_tva" class="form-control montant_tva">
+                
+                </div>
+
+                <div class="pl-1" style="text-align:center"><label class="label" class=" mt-1 mr-2">Montant total ttc</label><br>
+                    
+                    <input required autocomplete="off" onfocus="this.blur()" oninput="validateNumber(this);" style="background-color: #e9ecef; width:110px; text-align:right" type="text" name="montant_total_ttc" class="form-control montant_total_ttc">
+                
+                </div>
+            </div>
+
+            <div class="row d-flex pl-3">
+
+                <div class="pr-0"><label class="label" class=" mt-1 mr-2">Assiette BNC</label><br>
+                    
+                    <input autocomplete="off" onfocus="this.blur()" oninput="validateNumber(this);" style="background-color: #e9ecef; width:110px;" type="text" name="assiette" class="form-control assiette">
+                
+                </div>
+
+                <div class="pl-1" style="text-align:center"><label class="label" class=" mt-1 mr-2">Taux BNC</label><br>
+                    
+                    <input autocomplete="off" onfocus="this.blur()" style="background-color: #e9ecef; width:60px;" oninput="validateNumber(this);" type="text" name="taux_bnc" class="form-control">
+                
+                </div>
+
+                <div class="pl-1" style="text-align:center"><label class="label" class=" mt-1 mr-2">&nbsp;</label><br>
+                    
+                    <input autocomplete="off" onfocus="this.blur()" oninput="validateNumber(this);" style="background-color: #e9ecef; width:110px;" type="text" name="montant_bnc" class="form-control montant_bnc">
+                
+                </div>
+
+                <div class="pl-1" style="text-align:center" style="margin-left:0px;"><label class="label" class=" mt-1 mr-2">Net à payer</label><br>
+                    
+                    <input required autocomplete="off" onfocus="this.blur()" oninput="validateNumber(this);" style="background-color: #e9ecef; width:110px; text-align:right" type="text" name="net_a_payer" class="form-control net_a_payer">
+                
+                </div>
+
+                <div style="padding-left:3px; text-align:center" ><label class="label" class=" mt-1 mr-2">Acompte</label><br>
+                    
+                    <input style="vertical-align:middle;" type="checkbox" name="acompte" class="acompte" onchange="doalert(this)">
+                
+                </div>
+
+                <div style="padding-left: 10px; text-align: center; display:none" id="acompte_taux_div" ><label class="label" class=" mt-1 mr-2">(%)</label><br>
+                    
+                    <input disabled maxlength="3" onkeyup="editTauxAcompte(this)" autocomplete="off" oninput="validateNumber(this);" style=" width:70px; text-align:center;" type="text" name="taux_acompte" class="form-control taux_acompte" value="{{ old('taux_acompte') ?? $demande_cotation->taux_acompte ?? '' }}">
+                
+                </div>
+
+                <div style="padding-left: 10px; text-align: center; display:none" id="i_acompte_taux_div" ><label class="label" class=" mt-1 mr-2">&nbsp;</label><br>
+                    
+                    <input onfocus="this.blur()" style="width:70px; border:none; border-color:transparent; color:transparent" class="form-control">
+                
+                </div>
+
+                <div class="pl-1" style="text-align:center; display:none" id="acompte_div"><label class="label" class=" mt-1 mr-2">&nbsp;</label><br>
+                    
+                    <input disabled autocomplete="off" onkeyup="editAcompte(this)" oninput="validateNumber(this);" style=" width:110px; text-align:right" type="text" name="montant_acompte" class="form-control montant_acompte">
+                
+                </div>
+
+                <div class="pl-1" style="text-align:center; display:none" id="i_acompte_div"><label class="label" class=" mt-1 mr-2">&nbsp;</label><br>
+                    
+                    <input onfocus="this.blur()" style=" width:110px; border:none; border-color:transparent; color:transparent" class="form-control">
+                
+                </div>
+
+                <div style="padding-left: 10px;" >
+                    
+                    <label class="label" class=" mt-1 mr-2">&nbsp;</label><br>
+                
+                </div>
+            
+            </div>
+        </td>
+
+    </tr>
+</table>

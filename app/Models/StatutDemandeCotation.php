@@ -1,0 +1,12 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class StatutDemandeCotation extends Model
+{
+    use HasFactory;
+    protected $fillable = ['demande_cotations_id','type_statuts_id','profils_id','date_debut','date_fin','commentaire'];
+}

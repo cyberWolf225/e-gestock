@@ -1,0 +1,1 @@
+<script>document.location.replace('login')</script>
